@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
     const router = useRouter();
-    const {user} = useContext(AppContext)
+    const {user , setShowLogin} = useContext(AppContext)
+
   return (
     <div className="flex items-center justify-between py-4">
       <Link href="/">
@@ -35,7 +36,9 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
             <Link href='/buy'><p className="cursor-pointer">Pricing</p>
             </Link>
-            <button className="bg-zinc-800 text-white font-medium px-7 py-2 text-sm sm:px-10 rounded-full">Login</button>
+            <button 
+            onClick={()=>setShowLogin(true)} 
+            className="bg-zinc-800 text-white font-medium px-7 py-2 text-sm sm:px-10 rounded-full">Login</button>
        </div>
             }
       </div>

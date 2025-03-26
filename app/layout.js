@@ -1,8 +1,9 @@
 import { Inter, Outfit, Poppins, Prata, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import AppContextProvider from "./context/AppContext";
+import AppContextProvider, { AppContext } from "./context/AppContext";
 import Footer from "./components/Footer";
+import LoginPage from "./login/LoginPage";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["100", "400", "700"] });
 const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["100", "400", "700"] });
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         }
       >
         <AppContextProvider>
+        <LoginPage/>
         <Navbar/>
         {children}
         <Footer/>

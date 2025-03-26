@@ -6,8 +6,9 @@ export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
   const [user, setUser] = useState(null);
+  const [showLogin, setShowLogin] = useState(false);
   const value  = {
-    user,setUser
+    user,setUser,showLogin,setShowLogin
   }
   return (
     <AppContext.Provider value={value}>
