@@ -12,7 +12,7 @@ const Step = () => {
             {
                 stepsData.map((item,index)=>(
                     <div key={index} className='flex items-center gap-4 p-5 px-8 bg-white/20 shadow-md cursor-pointer hover:scale-[1.02] transition-all duration-300 rounded-lg' >
-                        <Image width={40} src={item.icon}  alt=""/>
+                        <Image width={40} src={item.icon}  alt="items-icons"/>
                         <div>
                             <h2 className='text-xl font-medium'>{item.title}</h2>
                             <p className='text-gray-500'>{item.description}</p>

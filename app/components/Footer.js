@@ -9,11 +9,11 @@ const Footer = () => {
         <p className='flex-1  border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden'>Copyright @GreatStack.dv || All right reservied.</p>
 
         <div className='flex gap-2.5'>
-            <Image src={assets.facebook_icon} alt="" width={35} />
+            <Image src={assets.facebook_icon} alt="facebook-icon" width={35} />
 
-            <Image src={assets.twitter_icon} akt="" width={35} />
+            <Image src={assets.twitter_icon} akt="twitter-icon" width={35} />
 
-            <Image src={assets.instagram_icon} akt="" width={35} />
+            <Image src={assets.instagram_icon} akt="intagram-icon" width={35} />
         </div>
     </div>
   )

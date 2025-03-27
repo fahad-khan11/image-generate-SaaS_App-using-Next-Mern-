@@ -13,13 +13,13 @@ const Testimonial = () => {
                 testimonialsData.map((testimonial,index)=>(
                     <div key={index} className='bg-white/20 p-12 rounded-lg shadow-md  w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all'>
                         <div className='flex flex-col items-center'>
-                            <Image src={testimonial.image} className='rounded-full w-14' />
+                            <Image src={testimonial.image} alt='testimonial-images' className='rounded-full w-14' />
                             <h2 className='text-xl font-semibold mt-3'>{testimonial.name}</h2>
                             <p className='text-gray-500 mb-4'>{testimonial.role}</p>
                             <div className='flex mb-4 '>
                                 {
                                     Array(testimonial.stars).fill().map((item,index)=>(
-                                        <Image src={assets.rating_star} key={index}/>
+                                        <Image src={assets.rating_star} layout='rating-icons' key={index}/>
                                     ))
                                 }
                             </div>

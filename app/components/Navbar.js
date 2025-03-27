@@ -19,13 +19,13 @@ const Navbar = () => {
       <div>
         {user ? 
         <div className="flex items-center sm:gap-3">
-            <button  onClick={() => router.push("/buy")} className="flex item-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700">
+            <button  onClick={() => router.push("/buy")} alt='credit-stars' className="flex item-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700">
             <Image src={assets.credit_star} className="w-5"/>
             <p className="text-xs sm:text-sm font-medium text-gray-600">Credit left : 50</p>
             </button>
             <p className="text-gray-600 max-sm:hidden pl-4">Hi ,fahad khan</p>
             <div className="relative hover group">
-                <Image src={assets.profile_icon} className="w-10 drop-shadow"/>
+                <Image src={assets.profile_icon} alt="profile-icons" className="w-10 drop-shadow"/>
             <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
             <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm">
                 <li className="py-1 px-2 cursor-pointer pr-10">Logout</li>
