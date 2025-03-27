@@ -8,7 +8,7 @@ const Testimonial = () => {
          <h1 className='text-3xl sm:text-4xl font-semibold mb-2 '>Customer testimonials</h1>
          <p className='text-gray-500 mb-8 '>what Our User Are Saying</p>
 
-         <div className='flex flex-row gap-6 '>
+         <div className='flex flex-col md:flex-row  gap-6 '>
             {
                 testimonialsData.map((testimonial,index)=>(
                     <div key={index} className='bg-white/20 p-12 rounded-lg shadow-md  w-80 m-auto cursor-pointer hover:scale-[1.02] transition-all'>

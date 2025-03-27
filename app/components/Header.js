@@ -1,33 +1,108 @@
-"use-client"
-import React from 'react'
-import { assets } from '../assets/assets'
-import Image from 'next/image'
+"use client";
+import { motion } from "framer-motion"; 
+import React, { useContext } from "react";
+import { assets } from "../assets/assets";
+import Image from "next/image";
+import { AppContext } from "../context/AppContext";
+import { useRouter } from "next/navigation"; // ✅ Correct import
 
 const Header = () => {
-  return (
-        <div className="flex flex-col justify-center items-center my-20">
-            <div className="text-stone-500 inline-flex text-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500">
+    const { user, setShowLogin } = useContext(AppContext);
+    const router = useRouter();
+
+    const onClickHandler = () => {
+        if (user) {
+            router.push('/result');
+        } else {
+            setShowLogin(true);
+        }
+    };
+
+    return (
+        <motion.div 
+            className="flex flex-col justify-center items-center my-16"
+            initial={{ opacity: 0.2, y: 100 }}
+            transition={{ duration: 1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+        >
+            <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-stone-500 inline-flex text-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500"
+            >
                 <p>Best text to image generator</p>
-                <Image src={assets.star_icon} alt='star-icons' />
-            </div>
-            <h1 className='text-4xl max-w-[300px]  sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>Turn text to <span className='text-blue-600'>image</span>,in seconds.</h1>
+                <Image src={assets.star_icon} alt="star-icons" />
+            </motion.div>
 
-            <p className='text-center max-w-xl mx-auto mt-5'>Unleash your creativity with AI. Turn your imagination into visual art in seconds – just type, and watch the magic happen.</p>
+            <motion.h1 className="text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center">
+                Turn text to 
+                <motion.span 
+                    className="text-blue-600"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 2 }}
+                >
+                    image
+                </motion.span>, in seconds.
+            </motion.h1>
 
-            <button className='sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2.5 flex items-center gap-2 rounded-full'>
-                Genereate Images
-                <Image src={assets.star_group} alt="stars-groups" className='h-6 w-6'/>
-            </button>
+            <motion.p 
+                className="text-center max-w-xl mx-auto mt-5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+            >
+                Unleash your creativity with AI. Turn your imagination into visual art
+                in seconds – just type, and watch the magic happen.
+            </motion.p>
 
-            <div className='flex flex-wrap justify-center mt-16 gap-3'>
-                {Array(6).fill('').map((item,index)=>(
-                    <Image src={index%2==0?assets.sample_img_2:assets.sample_img_1} key={index} width={70} alt='sample-images' className='rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10'/>
+            <motion.button 
+                onClick={onClickHandler}
+                className="sm:text-lg text-white bg-black w-auto mt-8 px-8 py-2.5 flex items-center gap-2 rounded-full"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ default: { duration: 0.8 }, opacity: { delay: 0.8, duration: 1 } }}
+            >
+                Generate Images
+                <Image src={assets.star_group} alt="stars-groups" className="h-6 w-6" />
+            </motion.button>
+
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="flex flex-wrap justify-center mt-16 gap-3"
+            >
+                {Array(6).fill("").map((_, index) => (
+                    <motion.div 
+                        key={index}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <Image
+                            src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
+                            width={70}
+                            height={70} 
+                            alt="sample-images"
+                            className="rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10"
+                        />
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
-            <p className='mt-2 text-neutral-600'>Generated images from imagify</p>
-        </div>
-  )
-}
+            <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+                className="mt-2 text-neutral-600"
+            >
+                Generated images from imagify
+            </motion.p>
+        </motion.div>
+    );
+};
 
-export default Header
+export default Header;
