@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Step = () => {
   return (
     <motion.div
-      initial={{ opacity: 0.2, y: 100 }}
+      initial={{ opacity: 0.2, y: 140 }}
       transition={{ duration: 1 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

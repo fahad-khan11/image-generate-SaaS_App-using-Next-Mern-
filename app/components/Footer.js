@@ -11,9 +11,9 @@ const Footer = () => {
         <div className='flex gap-2.5'>
             <Image src={assets.facebook_icon} alt="facebook-icon" width={35} />
 
-            <Image src={assets.twitter_icon} akt="twitter-icon" width={35} />
+            <Image src={assets.twitter_icon} alt="twitter-icon" width={35} />
 
-            <Image src={assets.instagram_icon} akt="intagram-icon" width={35} />
+            <Image src={assets.instagram_icon} alt="intagram-icon" width={35} />
         </div>
     </div>
   )
