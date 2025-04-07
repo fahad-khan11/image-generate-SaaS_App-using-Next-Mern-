@@ -1,5 +1,7 @@
 import { Inter, Outfit, Poppins, Prata, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar";
 import AppContextProvider, { AppContext } from "./context/AppContext";
 import Footer from "./components/Footer";
@@ -31,6 +33,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer/>
         </AppContextProvider>
+        <ToastContainer position="bottom-right"/>
       </body>
     </html>
   );

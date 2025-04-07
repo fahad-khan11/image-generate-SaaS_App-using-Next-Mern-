@@ -75,12 +75,10 @@ module.exports.loginUser = async (req,res) => {
     res.status(200).json({
         success:true,
         message:"User login successfully",
+        token:token,
         user:{
             name:user.name,
-            email:user.email,
-            password:user.password,
         },
-        token:token
     })
   }
 }
@@ -91,3 +89,21 @@ module.exports.loginUser = async (req,res) => {
         })
     }
 } 
+
+module.exports.userCredits = async (req,res) => {
+    try {
+        const {userId} = req.body;
+        const user =  await userModel.findById(userId);
+     res.status(200).json({
+            success:true,
+            message:"User credits fetched successfully",
+            credits:user.creditBalance,
+            user:{name:user.name}
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:error.message
+        })
+    }
+}

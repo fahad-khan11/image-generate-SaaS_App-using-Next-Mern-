@@ -4,6 +4,7 @@ const dotenv = require("dotenv")
 const app = express();
 const connectDB = require('./db/db.js')
 const userRoutes = require('./routes/userRoutes.js')
+const imageRoutes = require('./routes/imageRoutes.js')
 
 app.use(express.json());
 app.use(cors());
@@ -19,8 +20,9 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/user',userRoutes)
+app.use('/image',imageRoutes);
+
 
 app.listen(PORT,()=>{
     console.log(`server is runing on the http://localhost:${PORT}`);
-    
 })
