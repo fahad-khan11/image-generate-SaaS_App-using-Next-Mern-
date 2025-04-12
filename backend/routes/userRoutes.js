@@ -8,6 +8,12 @@ router.post('/register',userController.registerUser)
 
 router.post('/login',userController.loginUser)
 
-router.post ('/credits',userAuth,userController.userCredits)
+router.get ('/credits',userAuth,userController.userCredits)
+
+router.post('/payment-stripe',userAuth,userController.paymentMethod)
+
+router.post('/verify-stripe',userAuth,userController.verifyPayment)
+
+
 
 module.exports = router;

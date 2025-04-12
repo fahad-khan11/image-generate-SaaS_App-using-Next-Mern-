@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^3.6.0",
     "@tailwindcss/postcss": "^4.0.14",
     "axios": "^1.8.4",
     "motion": "^12.6.2",
